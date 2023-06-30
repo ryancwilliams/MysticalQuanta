@@ -1,7 +1,6 @@
 package com.github.ryancwilliams.mysticalquanta;
 
 import com.mojang.logging.LogUtils;
-import lombok.NonNull;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,20 +37,20 @@ public class MysticalQuanta
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(@NonNull final FMLCommonSetupEvent event)
+    private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 
-    private void enqueueIMC(@NonNull final InterModEnqueueEvent event)
+    private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // Some example code to dispatch IMC to another mod
         InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
-    private void processIMC(@NonNull final InterModProcessEvent event)
+    private void processIMC(final InterModProcessEvent event)
     {
         // Some example code to receive and process InterModComms from other mods
         LOGGER.info("Got IMC {}", event.getIMCStream().
@@ -61,7 +60,7 @@ public class MysticalQuanta
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(@NonNull ServerStartingEvent event)
+    public void onServerStarting(ServerStartingEvent event)
     {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
@@ -73,7 +72,7 @@ public class MysticalQuanta
     public static class RegistryEvents
     {
         @SubscribeEvent
-        public static void onBlocksRegistry(@NonNull final RegistryEvent.Register<Block> blockRegistryEvent)
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent)
         {
             // Register a new block here
             LOGGER.info("HELLO from Register Block");
