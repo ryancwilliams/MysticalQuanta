@@ -29,6 +29,9 @@ local.properties
 eclipse/
 libs/
 
+# VS Code
+.vscode/
+
 # Windows
 Thumbs.db
 ehthumbs.db
