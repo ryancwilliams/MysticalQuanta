@@ -228,3 +228,10 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+test {
+    //Use Junit5
+    useJUnitPlatform()
+    //Allow for parallel test execution
+    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+}
