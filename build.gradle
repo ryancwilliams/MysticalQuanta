@@ -12,6 +12,7 @@ buildscript {
 plugins {
     id 'eclipse'
     id 'maven-publish'
+    id 'jacoco'
     id 'io.freefair.lombok' version '8.1.0'
 }
 apply plugin: 'net.minecraftforge.gradle'
@@ -237,4 +238,6 @@ test {
     useJUnitPlatform()
     //Allow for parallel test execution
     maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    //generate coverage report
+    finalizedBy jacocoTestReport
 }
