@@ -1,8 +1,8 @@
 package com.github.ryancwilliams.mysticalquanta.quanta;
 
 import lombok.Data;
+import lombok.NonNull;
 import net.minecraft.world.item.Item;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An Item that has a value in the Quanta System.
