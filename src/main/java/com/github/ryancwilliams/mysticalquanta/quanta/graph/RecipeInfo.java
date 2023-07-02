@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -25,5 +26,17 @@ public class RecipeInfo {
 	@Getter
 	@NonNull
 	private final Set<RecipeAssetInfo> outputs;
+
+	/**
+	 * Creates a copy of the provided {@link RecipeInfo}.
+	 * <p>
+	 * This does NOT copy the {@link RecipeAssetInfo} that are inside the sets.
+	 *
+	 * @param recipe The recipe to copy.
+	 */
+	public RecipeInfo(@NonNull RecipeInfo recipe) {
+		this.inputs = new HashSet<>(recipe.inputs);
+		this.outputs = new HashSet<>(recipe.outputs);
+	}
 
 }
